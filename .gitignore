@@ -1,0 +1,4 @@
+# secrets and backups (agent rule 2026-11-12)
+.env
+*.bak*
+secrets/
