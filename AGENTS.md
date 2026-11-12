@@ -3,8 +3,8 @@
 Standing rule from Axel (2026-11-12), for every Grok bot and herdr agent working in this repo:
 
 - Document every change in this project: README, `docs/`, and the changelog (`CHANGELOG.md` or `docs/changelog.md`), with date and what/why.
-- Commit with a clear message, then push to the existing remote.
+- Commit with a clear message, then push to the repo's existing remote, public or private, after the secret check.
 - Before each commit, run a secret check: `git diff --cached --name-only` and `git diff --cached`. Never commit `.env*`, keys, tokens, `auth.json`, credentials, session exports, or `*.bak*` files. If one is staged, unstage it and add it to `.gitignore`.
-- Never push to a public repo, or make a repo public, without Axel's explicit OK (`gh repo view --json visibility`).
+- Public repos (`gh repo view --json visibility`): be extra strict. Before pushing, review the full diff being pushed (`git diff @{u}..HEAD`) for secrets, tokens, private IPs and hostnames the repo does not already contain, personal data, and session exports. If anything looks sensitive, do not push; report it to Axel.
 - If the repo has no remote, commit locally and report that.
 - Commit only your own change; do not sweep in someone else's uncommitted work.
