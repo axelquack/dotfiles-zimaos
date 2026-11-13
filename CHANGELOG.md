@@ -18,6 +18,23 @@ Use one heading per change: `## YYYY-MM-DD — title`. Under it, keep only the s
 
 **Why:** one board for all open work (Axel, 2026-11-13).
 
+## 2026-11-13 — Pin GitHub Actions and add Dependabot
+
+### Added
+
+- `.github/dependabot.yml` checks the `github-actions` ecosystem weekly. No other ecosystem is listed.
+
+### Changed
+
+- `.github/workflows/gitleaks.yml` pins `actions/checkout` to `d23441a48e516b6c34aea4fa41551a30e30af803` (v6.1.0) and `gitleaks/gitleaks-action` to `e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e` (v3.0.0).
+- `SECURITY.md` records those pins and the weekly check.
+
+### Security
+
+- The workflow runs those action commits, so a moved tag does not change the job.
+
+**Why:** A public workflow should run a known action commit, and a weekly check should propose the next release.
+
 ## 2026-11-13 — Public repo standard
 
 ### Added

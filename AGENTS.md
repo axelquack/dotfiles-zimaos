@@ -64,7 +64,8 @@ Read in this order:
 | `scripts/docs-index.sh` | Refresh the generated list in `docs/README.md` | Whoever changes the index |
 | `scripts/repo-audit.sh` | Report standard files that are missing | Whoever changes the standard |
 | `.gitleaks.toml` | Gitleaks rules and the license-text allowlist | Whoever changes the secret check |
-| `.github/workflows/gitleaks.yml` | Gitleaks on push and pull_request | Whoever changes the CI check |
+| `.github/workflows/gitleaks.yml` | Gitleaks on push and pull_request. Actions are pinned to commit SHAs | Whoever changes the CI check |
+| `.github/dependabot.yml` | Weekly update check for the `github-actions` ecosystem only | Whoever changes the update schedule |
 
 ## Hard limits
 
