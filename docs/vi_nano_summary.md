@@ -1,5 +1,7 @@
 # Executive Summary: `vi` and `nano` on ZimaOS
 
+Recorded: 2025-04-03 (Europe/Berlin). These limits are still current. A typo fix landed on 2025-04-08. The note stays here because the editors are still minimal.
+
 ## Overview
 
 ZimaOS, an immutable, minimal Linux-based system, provides two text editors: `vi` (version 1.36.1) and `nano` (GNU nano 8.1). Efforts to enhance these editors with features such as color-coding, line numbers, and usability improvements were tested using configuration files (`.vimrc` for `vi`, `.nanorc` for `nano`), command-line options, and `.bashrc` aliases. Due to ZimaOS’s minimal design and a preference to avoid system-level changes (e.g., `/etc/`), customization was limited to user-level directories (`~/`, mapped to `/DATA/`).
