@@ -1,0 +1,29 @@
+# Public repositories.
+# Personal GitHub accounts need no gitleaks-action license.
+# Organization accounts need a free license key from gitleaks.io. This workflow
+# does not set GITLEAKS_LICENSE, so it stays on the free personal-account path.
+# gitleaks-action v2 is not used: GitHub removed Node 20 from hosted runners
+# on 2026-09-16, and v2 stops on those runners. v3 is the current action.
+name: gitleaks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  gitleaks:
+    name: gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

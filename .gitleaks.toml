@@ -1,0 +1,12 @@
+title = "repo-standard"
+
+# Keep the built-in rules, then add the allowlist below.
+[extend]
+useDefault = true
+
+# The PolyForm Noncommercial 1.0.0 text includes the vendor's example notice.
+# That line is part of the license. It is not a secret from this repository.
+[allowlist]
+description = "PolyForm license example notice"
+regexTarget = "line"
+regexes = ['''Copyright Yoyodyne, Inc\. \(http://example\.com\)''']

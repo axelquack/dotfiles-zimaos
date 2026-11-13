@@ -1,4 +1,41 @@
-# secrets and backups (agent rule 2026-11-12)
-.env
+# Environment files. .env.example is the one that may be committed.
+.env*
+!.env.example
+
+# Editor and backup leftovers
 *.bak*
+.DS_Store
+
+# Keys and credentials
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+auth*.json
+*credentials*
+
+# Session exports
+*session-export*
+*session_export*
+
+# Common caches
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.tox/
+.coverage
+htmlcov/
+
+# Extra ignore rules already used by this repo
 secrets/
+
+# Public repository. HANDOFF.md stays untracked.
+# Write the handoff in agent-platform at handoffs/<repo>.md.
+# CHANGELOG.private.md holds notes that must not be published.
+HANDOFF.md
+CHANGELOG.private.md

@@ -1,6 +1,6 @@
 # Executive Summary: `vi` and `nano` on ZimaOS
 
-Recorded: 2025-04-03 (Europe/Berlin). These limits are still current. A typo fix landed on 2025-04-08. The note stays here because the editors are still minimal.
+Recorded: 2025-04-03 (Europe/Berlin). These limits are still current. A typo fix landed on 2025-04-08. The note stays here because the editors are still minimal. Durable limits are BF-001 and BF-002 in `BUGFIXES.md`.
 
 ## Overview
 

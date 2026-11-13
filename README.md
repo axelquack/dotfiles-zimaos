@@ -1,6 +1,42 @@
 # ZimaOS Dotfiles
 
-This repository contains a collection of configuration files for the ZimaOS operating system, an immutable, minimal Linux-based environment. It includes `.bashrc`, `.bash_profile`, and `.wgetrc` files to enhance the Bash shell and `wget` utility with a Solarized-inspired aesthetic, practical aliases, and optimized download settings. Developed with care, this setup balances functionality, convenience, and visual appeal while respecting ZimaOS’s constraints (e.g., no `xclip`, `pbcopy`, or `git` by default).
+Shell dotfiles for ZimaOS: `.bashrc`, `.bash_profile`, and `.wgetrc`. The setup is a Solarized-inspired Bash prompt, practical aliases, and wget settings that fit an immutable, minimal Linux environment (no `xclip`, `pbcopy`, or `git` by default).
+
+## Status
+
+2026-11-13, Europe/Berlin: public repository on the repo standard. The license is PolyForm Noncommercial 1.0.0. Versions published before this commit remain under CC0-1.0. Axel is the sole contributor.
+
+## Start here
+
+1. `AGENTS.md`
+2. This file
+3. `BUGFIXES.md` and `SECURITY.md`
+4. `HANDOFF.md`, the last three entries in `CHANGELOG.md`, and `git log -5`. `HANDOFF.md` is gitignored in this public repository.
+5. The current ticket, or else `TODO.md` and `ROADMAP.md`
+6. `docs/README.md`
+
+## Layout
+
+| Path | What |
+| --- | --- |
+| `AGENTS.md` | Agent rules. `CLAUDE.md` is a symlink to this file. |
+| `README.md` | This page. |
+| `CHANGELOG.md` | What changed, newest first. |
+| `ROADMAP.md` | Now, next, later, ideas, done recently. |
+| `TODO.md` | Interim tasks until the agent-ops board exists. |
+| `BUGFIXES.md` | Durable bug writeups (`BF-NNN`). vi and nano limits live here. |
+| `HANDOFF.md` | Done, next, open questions. Tracked in a private repo. Gitignored in a public repo. |
+| `SECURITY.md` | Threat model and where secrets live. |
+| `LICENSE` | Rights for this repo. |
+| `justfile` | Recipes. `just` lists them. `just setup` installs the git hook. Imports `just/dotfiles.just`. |
+| `just/dotfiles.just` | Preview recipe. It does not apply these files. |
+| `docs/` | Longer docs. Index: `docs/README.md`. |
+| `.bashrc` | Interactive shell: prompt, aliases, and welcome text. |
+| `.bash_profile` | Login shell. Sources the bashrc. |
+| `.wgetrc` | wget settings. |
+| `.env.example` | Setting names only. This repo has no settings. |
+| `.githooks/` | `pre-commit` runs the secret check. |
+| `scripts/check-secrets.sh` | Secret check for the working tree, the index, or history. |
 
 ## Features
 
@@ -12,6 +48,8 @@ This repository contains a collection of configuration files for the ZimaOS oper
   * A dynamic arrow (`➜`) in green (`tput setaf 100`) for command success or red (`tput setaf 124`) for failure.
   * Prompt symbol (`$` or `#`) in yellow (`tput setaf 136`).
 * **Example**: `<username>@<yourhostname>:~/Sites ➜ $` (green arrow after a successful `ls`).
+
+The prompt uses the generic username and hostname escapes. It does not name a machine.
 
 ### Welcome Message
 
@@ -120,6 +158,8 @@ This repository contains a collection of configuration files for the ZimaOS oper
 
 ## Installation
 
+These steps are for a person at the machine. An agent working in this repository does not apply the files, does not open a shell on a host, and does not change a live home directory. `just preview` only prints a reminder.
+
 ### Files
 
 * **`.bashrc`**: The main configuration file with prompt, aliases, and welcome message.
@@ -175,6 +215,7 @@ This repository contains a collection of configuration files for the ZimaOS oper
 * **Bash Welcome**: Tweak the ASCII art or message in the `# Welcome message` section of `.bashrc`.
 * **Autoload**: Modify `.bash_profile` for additional login shell customizations.
 * **Wget Settings**: Edit `~/.wgetrc` to uncomment and set optional parameters (e.g., `reclevel = 5`, `dir_prefix = /downloads`).
+* **Editors**: vi and nano stay minimal. See `docs/vi_nano_summary.md` and `BUGFIXES.md`.
 
 ## Requirements
 
@@ -184,11 +225,14 @@ This repository contains a collection of configuration files for the ZimaOS oper
 
 ## Contributing
 
-Feel free to fork this repository, adapt it, and submit pull requests! Suggestions for new aliases, better ASCII art, or ZimaOS-specific tweaks are welcome.
+Fork this repository and open a pull request. Suggestions for new aliases, ASCII art, or ZimaOS-specific tweaks are welcome. Changes to `main` go through a pull request.
+
+`just` lists the recipes. `just setup` points this clone at `.githooks`. `just preview` does not copy files onto a machine.
 
 ## License
 
-This work is licensed under a [Creative Commons Zero 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+PolyForm Noncommercial 1.0.0. See `LICENSE`.
 
-* **You are free to**: Use, copy, modify, and distribute this work for any purpose, including commercial use, without any conditions or attribution required.
-* **No Rights Reserved**: The author has waived all copyright and related rights to the fullest extent allowed by law, effectively placing this work in the public domain.
+Axel is the sole contributor.
+
+Versions published before this commit remain under CC0-1.0.
