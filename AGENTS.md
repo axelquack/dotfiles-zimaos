@@ -120,3 +120,14 @@ Before you stop, write what you did, what is next, and the open questions.
 In a private repository, update `HANDOFF.md` and keep it tracked.
 
 In a public repository, `HANDOFF.md` is gitignored. Write the note in the agent-platform repository at `handoffs/<repo>.md`.
+
+## Work tracking
+
+Rule from the owner (2026-11-13): all open work goes on the owner's private GitHub Project board, not into new TODO.md items or chat-only lists.
+
+1. File an issue in this repo (or a draft item on the board if no repo fits) and add it to the board with `gh project item-add` (find the board with `gh project list --owner @me`).
+2. Link each pull request to its issue (`Closes #<n>` in the PR body) and add the PR to the board too.
+3. Set **Status** (Inbox / Waiting on Axel / In progress / Done) and **Owner** (your agent or bot name; if your name is not an Owner option yet, pick your lead bot and write your name in the item).
+4. Anything that needs the owner gets Status "Waiting on Axel" and the `waiting-on-axel` label. Ping the owner only if it is urgent; the morning digest covers the rest.
+5. Use `gh` on the owner's machine (it has the `project` scope). The GitHub connector cannot reach personal Projects.
+6. Existing TODO.md files stay for now; do not add new items to them.
